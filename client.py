@@ -28,16 +28,16 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
-    channel = member.server.get_channel("539119138463809539")
+    channel = member.server.get_channel("547146184209465345")
     fmt = '{0.mention}, bun venit in **{1.name}.**:tada:  Esti **al {2}-lea Membru!**:gem:'
     await bot.send_message(channel, fmt.format(member, member.server, str(len(set(bot.get_all_members())))))
-    role=discord.utils.get(member.server.roles,id="444459730870730764")
+    role=discord.utils.get(member.server.roles,id="547147922807062528")
     await bot.add_roles(member,role)
 
 @bot.event
 async def on_member_remove(member):
-    channel = member.server.get_channel("539119138463809539")
-    fmt = '**{0.name}** tocmai a parasit **{1.name}**'
-    await bot.send_message(channel, fmt.format(member, member.server))
+    channel = member.server.get_channel("547146184209465345")
+    fmt = '**{0.name}** tocmai a parasit **{1.name}** au mai ramas **al {2} membri!** '
+    await bot.send_message(channel, fmt.format(member, member.server, str(len(set(bot.get_all_members())))))
     
 bot.run(str(os.environ.get("BOT_TOKEN")))
