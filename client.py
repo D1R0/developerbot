@@ -37,7 +37,7 @@ async def on_member_join(member):
 @bot.event
 async def on_member_remove(member):
     channel = member.server.get_channel("547146184209465345")
-    fmt = '**{0.name}** tocmai a parasit **{1.name}** au mai ramas **al {2} membri!** '
+    fmt = '**{0.name}** tocmai a parasit **{1.name}** au mai ramas ** {2} membri!** '
     await bot.send_message(channel, fmt.format(member, member.server, str(len(set(bot.get_all_members())))))
     
 bot.run(str(os.environ.get("BOT_TOKEN")))
